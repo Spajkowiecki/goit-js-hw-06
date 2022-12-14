@@ -26,7 +26,7 @@ function createBoxes(amount) {
 
 function destroyBoxes() {
   console.log("liczba obiektow: " + boxes.children.length);
-  for (let i = boxes.children.length; i >= 1; i--) {
-    boxes.removeChild(boxes.firstChild);
+  for (let i = boxes.children.length - 1; i >= 0; i--) {
+    boxes.children[i].remove();
   }
 }
