@@ -13,14 +13,15 @@ const images = [
   },
 ];
 
-const ul = document.querySelector(".gallery");
-for (let image of images) {
-  let li = document.createElement("li");
-  let img = document.createElement("img");
-  img.setAttribute("class", "gallery__item");
-  img.setAttribute("src", `${image.url}`);
-  img.setAttribute("alt", `${image.alt}`);
+const gallery = document.querySelector(".gallery");
 
-  li.appendChild(img);
-  ul.appendChild(li);
-}
+const listCreator = images
+  .map(
+    (el) =>
+      `<li>
+      <img src="${el.url}" class="gallery__item" alt="${el.alt}" />
+    </li>`
+  )
+  .join("");
+
+gallery.insertAdjacentHTML("afterbegin", listCreator);
