@@ -8,10 +8,13 @@ input.addEventListener("onchange", checkInput);
 
 function checkInput() {
   let value = input.value;
-  if ([...value].length < input.getAttribute("data-length", 6)) {
+  if (
+    [...value].length < input.getAttribute("data-length", 6) ||
+    [...value].length > input.getAttribute("data-length", 6)
+  ) {
     input.classList.add("invalid");
   }
-  if ([...value].length >= input.getAttribute("data-length", 6)) {
+  if ([...value].length == input.getAttribute("data-length", 6)) {
     if (input.classList.contains("invalid")) {
       input.classList.replace("invalid", "valid");
     } else {
